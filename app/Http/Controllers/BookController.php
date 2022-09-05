@@ -25,6 +25,18 @@ class BookController extends Controller
         ]);
     }
 
+    public function topnew()
+    {
+        // $books = Book::get();
+        $books = Book::all();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => "all of book",
+            'data' => $books,
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -67,7 +79,7 @@ class BookController extends Controller
             $validatedBook['cover'] = $destinationPath."".$coverImage;
             $files->move($destinationPath, $coverImage);
         } else {
-            $validatedBook['cover']= "https://dummyimage.com/852x480/15748f/ffffff&text=".$validatedBook['judul'];
+            $validatedBook['cover']= "https://dummyimage.com/276x418/15748f/ffffff&text=".$validatedBook['judul'];
         }
 
         Book::create($validatedBook);
