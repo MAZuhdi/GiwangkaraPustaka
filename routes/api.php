@@ -42,6 +42,3 @@ Route::delete('/loans/{id}', [LoanController::class, 'destroy'])->name('loan.del
 Route::put('/loans/{id}/peminjaman-status', [LoanController::class, 'updateStatusPeminjaman'])->name('loan.updateSP');
 Route::put('/loans/{id}/kesiapan-pinjam', [LoanController::class, 'updateKesiapanPinjam'])->name('loan.updateKP');
 
-//Route ubah status peminjaman (ada hilang, terlambat, belum dipinjam, dipinjam) oleh admin
-//Route ubah kesiapan pinjam (belum siap diambil, siap diambil, sudah diambil) oleh admin
-
