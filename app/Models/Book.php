@@ -12,7 +12,8 @@ class Book extends Model
 
     protected $guarded  = ['id'];
     protected $primaryKey = 'kode';
-    public $incrementing = false;  // You most probably want this too
+    public $incrementing = false; 
+    protected $keyType = 'string';
 
 
     public function loans()
