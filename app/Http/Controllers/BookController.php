@@ -67,7 +67,7 @@ class BookController extends Controller
             'tags' => 'nullable|string',
             'abstrak' => 'nullable|string',
             'tahun_terbit' => 'integer',
-            'cover' => 'nullable|file|image|mimes:jpeg,png,jpg|max:2048',
+            'cover' => 'nullable',
             'kategori' => 'nullable|string',
         ]);
 
