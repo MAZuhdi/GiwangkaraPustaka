@@ -73,14 +73,24 @@ class BookController extends Controller
 
         $validatedBook['kode_panggil'] = $validatedBook['rak'].'.'.$validatedBook['kode'];        
 
-        if ($files = $request->file('cover')) {
-            $destinationPath = 'image/bookcover/'; // upload path
-            $coverImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
-            $validatedBook['cover'] = $destinationPath."".$coverImage;
-            $files->move($destinationPath, $coverImage);
-        } else {
+
+        if (is_null($request->cover)) {
             $validatedBook['cover']= "https://dummyimage.com/276x418/15748f/ffffff&text=".$validatedBook['judul'];
+        } else {
+            if (is_string($request->cover)) {
+                $validatedBook['cover'] = $request->cover;
+            } else {
+                if ($files = $request->file('cover')) {
+                    $destinationPath = 'image/bookcover/'; // upload path
+                    $coverImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+                    $validatedBook['cover'] = $destinationPath."".$coverImage;
+                    $files->move($destinationPath, $coverImage);
+                } else {
+                    $validatedBook['cover']= "https://dummyimage.com/276x418/15748f/ffffff&text=".$validatedBook['judul'];
+                }
+            }
         }
+        
 
         Book::create($validatedBook);
 
