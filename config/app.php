@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Giwangkara Pustaka'),
+    'name' => 'Giwangkara Pustaka',
 
     /*
     |--------------------------------------------------------------------------
