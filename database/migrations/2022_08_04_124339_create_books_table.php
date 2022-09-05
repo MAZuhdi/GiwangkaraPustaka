@@ -25,7 +25,7 @@ class CreateBooksTable extends Migration
             $table->string('rak')->nullable();
             $table->string('jurusan')->nullable();
             $table->string('tags')->nullable();
-            $table->string('abstrak')->nullable();
+            $table->string('abstrak', 500)->nullable();
             $table->integer('tahun_terbit')->nullable();
             $table->string('cover',255)->nullable();
             $table->string('kategori')->nullable();
